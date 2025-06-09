@@ -24,8 +24,8 @@
         }
         .flex-row { display: flex; gap: 10px; align-items: center; }
         .flex-row input, .flex-row select { margin-bottom: 0; }
-        .block-table { border-collapse: collapse; margin-bottom: 10px; }
-        .block-table td, .block-table th { border: 1px solid #ccc; padding: 2px 6px; }
+        .block-table { border-collapse: collapse; margin-bottom: 10px; width: 100%; }
+        .block-table td, .block-table th { border: 1px solid #ccc; padding: 8px; text-align: left; }
         .block-table th { background: #e3eaf2; }
     </style>
 </head>
@@ -33,7 +33,52 @@
 <div class="container">
     <h1>Créateur de standards EPS</h1>
     <form id="standardForm">
-        <div class="section-title">Paramètres généraux</div>
+        <div class="section-title">Critères</div>
+        <table class="block-table">
+            <tr>
+                <th>#</th>
+                <th>Nom</th>
+                <th>Sens</th>
+            </tr>
+            <!-- Critères 1 à 7 -->
+            <tr>
+                <td>1</td>
+                <td><input type="text" value="Course à pied" id="gradeName0" /></td>
+                <td><select id="gradeDir0"><option value="higher">Plus haut</option><option value="lower">Plus bas</option></select></td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td><input type="text" value="Pompes" id="gradeName1" /></td>
+                <td><select id="gradeDir1"><option value="higher">Plus haut</option><option value="lower">Plus bas</option></select></td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td><input type="text" value="Abdominaux" id="gradeName2" /></td>
+                <td><select id="gradeDir2"><option value="higher">Plus haut</option><option value="lower">Plus bas</option></select></td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td><input type="text" value="Souplesse" id="gradeName3" /></td>
+                <td><select id="gradeDir3"><option value="higher">Plus haut</option><option value="lower">Plus bas</option></select></td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td><input type="text" value="Saut en longueur" id="gradeName4" /></td>
+                <td><select id="gradeDir4"><option value="higher">Plus haut</option><option value="lower">Plus bas</option></select></td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td><input type="text" value="Lancer de balle" id="gradeName5" /></td>
+                <td><select id="gradeDir5"><option value="higher">Plus haut</option><option value="lower">Plus bas</option></select></td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td><input type="text" value="Vitesse" id="gradeName6" /></td>
+                <td><select id="gradeDir6"><option value="higher">Plus haut</option><option value="lower">Plus bas</option></select></td>
+            </tr>
+        </table>
+
+        <div class="section-title">Arrondi</div>
         <div class="flex-row">
             <label>Arrondi :
                 <select id="rounding">
@@ -42,11 +87,8 @@
                 </select>
             </label>
         </div>
-        <div class="section-title">Noms des critères</div>
-        <div id="gradeNamesInputs"></div>
-        <div class="section-title">Sens de notation (plus haut ou plus bas meilleur)</div>
-        <div id="gradeDirectionsInputs"></div>
-        <div class="section-title">Standards, Blocs et Scores</div>
+
+        <div class="section-title">Barèmes par sexe et âge</div>
         <div id="standardsBlocks"></div>
         <button type="button" id="generateBtn">Générer standards.json</button>
     </form>

@@ -6,32 +6,12 @@ const defaultGradeNames = [
 ];
 const defaultDirections = ["higher", "higher", "higher", "higher", "higher", "higher", "higher"];
 
-function createGradeNamesInputs() {
-    const div = document.getElementById('gradeNamesInputs');
-    div.innerHTML = '';
-    for (let i = 0; i < 7; i++) {
-        div.innerHTML += `<div class="flex-row"><label>Critère ${i+1} : <input type="text" value="${defaultGradeNames[i]}" id="gradeName${i}" /></label></div>`;
-    }
-}
-
-function createGradeDirectionsInputs() {
-    const div = document.getElementById('gradeDirectionsInputs');
-    div.innerHTML = '';
-    for (let i = 0; i < 7; i++) {
-        div.innerHTML += `<div class="flex-row"><label>Critère ${i+1} :
-            <select id="gradeDir${i}">
-                <option value="higher">Plus haut meilleur</option>
-                <option value="lower">Plus bas meilleur</option>
-            </select></label></div>`;
-    }
-}
-
 function createStandardsBlocksInputs() {
     const div = document.getElementById('standardsBlocks');
     div.innerHTML = '';
     sexes.forEach(sex => {
         ages.forEach(age => {
-            div.innerHTML += `<div class="section-title">${sex === 'male' ? 'Garçon' : 'Fille'} - ${age} ans</div>`;
+            div.innerHTML += `<div class="section-title" style="margin-top:18px;">${sex === 'male' ? 'Garçon' : 'Fille'} - ${age} ans</div>`;
             div.innerHTML += `<table class="block-table"><tr><th>Critère</th><th>Min</th><th>Max</th><th>Blocs (virgule)</th><th>Scores (virgule)</th></tr>`;
             for (let i = 0; i < 7; i++) {
                 div.innerHTML += `<tr>
@@ -95,8 +75,7 @@ function updateJSONOutput() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    createGradeNamesInputs();
-    createGradeDirectionsInputs();
+    // Les inputs de critères sont déjà dans le HTML
     createStandardsBlocksInputs();
     updateJSONOutput();
     document.getElementById('standardForm').addEventListener('input', updateJSONOutput);
