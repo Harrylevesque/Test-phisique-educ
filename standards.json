@@ -1,0 +1,134 @@
+{
+  "standards": {
+    "male": {
+      "12": [
+        {"min": 0, "max": 10},
+        {"min": 0, "max": 10},
+        {"min": 0, "max": 10},
+        {"min": 0, "max": 10},
+        {"min": 0, "max": 10},
+        {"min": 0, "max": 10},
+        {"min": 0, "max": 10}
+      ],
+      "13": [
+        {"min": 0, "max": 10},
+        {"min": 0, "max": 10},
+        {"min": 0, "max": 10},
+        {"min": 0, "max": 10},
+        {"min": 0, "max": 10},
+        {"min": 0, "max": 10},
+        {"min": 0, "max": 10}
+      ],
+      "14": [
+        {"min": 0, "max": 10},
+        {"min": 0, "max": 10},
+        {"min": 0, "max": 10},
+        {"min": 0, "max": 10},
+        {"min": 0, "max": 10},
+        {"min": 0, "max": 10},
+        {"min": 0, "max": 10}
+      ],
+      "15": [
+        {"min": 0, "max": 10},
+        {"min": 0, "max": 10},
+        {"min": 0, "max": 10},
+        {"min": 0, "max": 10},
+        {"min": 0, "max": 10},
+        {"min": 0, "max": 10},
+        {"min": 0, "max": 10}
+      ],
+      "16": [
+        {"min": 0, "max": 10},
+        {"min": 0, "max": 10},
+        {"min": 0, "max": 10},
+        {"min": 0, "max": 10},
+        {"min": 0, "max": 10},
+        {"min": 0, "max": 10},
+        {"min": 0, "max": 10}
+      ],
+      "17": [
+        {"min": 0, "max": 10},
+        {"min": 0, "max": 10},
+        {"min": 0, "max": 10},
+        {"min": 0, "max": 10},
+        {"min": 0, "max": 10},
+        {"min": 0, "max": 10},
+        {"min": 0, "max": 10}
+      ]
+    },
+    "female": {
+      "12": [
+        {"min": 0, "max": 10},
+        {"min": 0, "max": 10},
+        {"min": 0, "max": 10},
+        {"min": 0, "max": 10},
+        {"min": 0, "max": 10},
+        {"min": 0, "max": 10},
+        {"min": 0, "max": 10}
+      ],
+      "13": [
+        {"min": 0, "max": 10},
+        {"min": 0, "max": 10},
+        {"min": 0, "max": 10},
+        {"min": 0, "max": 10},
+        {"min": 0, "max": 10},
+        {"min": 0, "max": 10},
+        {"min": 0, "max": 10}
+      ],
+      "14": [
+        {"min": 0, "max": 10},
+        {"min": 0, "max": 10},
+        {"min": 0, "max": 10},
+        {"min": 0, "max": 10},
+        {"min": 0, "max": 10},
+        {"min": 0, "max": 10},
+        {"min": 0, "max": 10}
+      ],
+      "15": [
+        {"min": 0, "max": 10},
+        {"min": 0, "max": 10},
+        {"min": 0, "max": 10},
+        {"min": 0, "max": 10},
+        {"min": 0, "max": 10},
+        {"min": 0, "max": 10},
+        {"min": 0, "max": 10}
+      ],
+      "16": [
+        {"min": 0, "max": 10},
+        {"min": 0, "max": 10},
+        {"min": 0, "max": 10},
+        {"min": 0, "max": 10},
+        {"min": 0, "max": 10},
+        {"min": 0, "max": 10},
+        {"min": 0, "max": 10}
+      ],
+      "17": [
+        {"min": 0, "max": 10},
+        {"min": 0, "max": 10},
+        {"min": 0, "max": 10},
+        {"min": 0, "max": 10},
+        {"min": 0, "max": 10},
+        {"min": 0, "max": 10},
+        {"min": 0, "max": 10}
+      ]
+    }
+  },
+  "gradeNames": [
+    "Course à pied",
+    "Pompes",
+    "Abdominaux",
+    "Souplesse",
+    "Saut en longueur",
+    "Lancer de balle",
+    "Vitesse"
+  ],
+  "gradeDirections": [
+    "higher",
+    "higher",
+    "higher",
+    "higher",
+    "higher",
+    "higher",
+    "higher"
+  ]
+}

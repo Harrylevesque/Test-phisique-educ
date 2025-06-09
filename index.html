@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculateur de notes EPS</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Calculateur de notes EPS</h1>
+        <div class="controls">
+            <label>Sexe :
+                <select id="sex">
+                    <option value="male">Garçon</option>
+                    <option value="female">Fille</option>
+                </select>
+            </label>
+            <label>Âge :
+                <select id="age">
+                    <option value="12">12</option>
+                    <option value="13">13</option>
+                    <option value="14">14</option>
+                    <option value="15">15</option>
+                    <option value="16">16</option>
+                    <option value="17">17</option>
+                </select>
+            </label>
+            <label>Arrondi :
+                <select id="rounding">
+                    <option value="round">Entier</option>
+                    <option value="decimal">Décimal (2 chiffres)</option>
+                </select>
+            </label>
+            <label>Meilleur :
+                <select id="direction">
+                    <option value="higher">Plus haut = meilleur</option>
+                    <option value="lower">Plus bas = meilleur</option>
+                </select>
+            </label>
+            <label>Charger standards JSON :
+                <input type="file" id="jsonFile" accept="application/json">
+            </label>
+        </div>
+        <form id="gradesForm">
+            <div id="gradesSliders"></div>
+            <button type="submit">Calculer</button>
+        </form>
+        <div id="result"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

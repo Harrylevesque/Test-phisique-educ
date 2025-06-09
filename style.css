@@ -1,0 +1,77 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f6fa;
+    margin: 0;
+    padding: 0;
+}
+.container {
+    max-width: 600px;
+    margin: 40px auto;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    padding: 30px 40px;
+}
+h1 {
+    text-align: center;
+    color: #2a4d69;
+}
+.controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: space-between;
+    margin-bottom: 25px;
+}
+.controls label {
+    flex: 1 1 180px;
+    display: flex;
+    flex-direction: column;
+    font-weight: bold;
+    color: #2a4d69;
+}
+#gradesSliders {
+    margin-bottom: 20px;
+}
+.grade-slider {
+    margin-bottom: 18px;
+    background: #f0f4f8;
+    border-radius: 6px;
+    padding: 10px 15px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+.grade-slider label {
+    flex: 1 1 120px;
+    color: #4b6584;
+    font-weight: normal;
+}
+.grade-slider input[type="range"] {
+    flex: 2 1 200px;
+}
+.grade-slider input[type="number"] {
+    width: 60px;
+    margin-left: 10px;
+}
+button[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    background: #2a4d69;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+button[type="submit"]:hover {
+    background: #1e3550;
+}
+#result {
+    margin-top: 25px;
+    font-size: 1.2em;
+    text-align: center;
+    color: #3867d6;
+    font-weight: bold;
+}
