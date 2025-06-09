@@ -10,16 +10,24 @@ function createStandardsBlocksInputs() {
     const div = document.getElementById('standardsBlocks');
     div.innerHTML = '';
     sexes.forEach(sex => {
+        div.innerHTML += `<div class="section-title" style="margin-top:30px; background:#e3eaf2; padding:8px 10px; border-radius:6px;">${sex === 'male' ? 'Garçons' : 'Filles'}</div>`;
         ages.forEach(age => {
-            div.innerHTML += `<div class="section-title" style="margin-top:18px;">${sex === 'male' ? 'Garçon' : 'Fille'} - ${age} ans</div>`;
-            div.innerHTML += `<table class="block-table"><tr><th>Critère</th><th>Min</th><th>Max</th><th>Blocs (virgule)</th><th>Scores (virgule)</th></tr>`;
+            div.innerHTML += `<div style="margin:18px 0 6px 0; font-weight:bold; color:#3867d6;">Âge : ${age} ans</div>`;
+            div.innerHTML += `<table class="block-table" style="margin-bottom:20px; background:#f9fbfd;">
+            <tr style="background:#dbeafe;">
+                <th style="width:40px;">#</th>
+                <th style="width:120px;">Nom du critère</th>
+                <th style="width:80px;">Score max</th>
+                <th style="width:80px;">Min</th>
+                <th style="width:80px;">Max</th>
+            </tr>`;
             for (let i = 0; i < 7; i++) {
                 div.innerHTML += `<tr>
                     <td>${i+1}</td>
-                    <td><input type="number" id="std-${sex}-${age}-${i}-min" value="0" style="width:50px;"></td>
-                    <td><input type="number" id="std-${sex}-${age}-${i}-max" value="10" style="width:50px;"></td>
-                    <td><input type="text" id="blocks-${sex}-${age}-${i}" value="0,2,4,6,8,10" style="width:110px;"></td>
-                    <td><input type="text" id="scores-${sex}-${age}-${i}" value="0,2,4,6,8,10" style="width:110px;"></td>
+                    <td><input type="text" id="label-${sex}-${age}-${i}" value="" placeholder="Nom..." style="width:110px;"></td>
+                    <td><input type="number" id="score-${sex}-${age}-${i}" value="10" min="1" max="10" style="width:60px;"></td>
+                    <td><input type="number" id="std-${sex}-${age}-${i}-min" value="0" style="width:60px;"></td>
+                    <td><input type="number" id="std-${sex}-${age}-${i}-max" value="10" style="width:60px;"></td>
                 </tr>`;
             }
             div.innerHTML += `</table>`;
@@ -50,11 +58,10 @@ function generateJSON() {
             for (let i = 0; i < 7; i++) {
                 const min = parseFloat(document.getElementById(`std-${sex}-${age}-${i}-min`).value);
                 const max = parseFloat(document.getElementById(`std-${sex}-${age}-${i}-max`).value);
-                const blocks = document.getElementById(`blocks-${sex}-${age}-${i}`).value.split(',').map(Number);
-                const scores = document.getElementById(`scores-${sex}-${age}-${i}`).value.split(',').map(Number);
+                const score = parseFloat(document.getElementById(`score-${sex}-${age}-${i}`).value);
                 standards[sex][age].push({ min, max });
-                gradeBlocks[sex][age].push(blocks);
-                gradeScores[sex][age].push(scores);
+                gradeBlocks[sex][age].push([min, max]);
+                gradeScores[sex][age].push([score]);
             }
         });
     });

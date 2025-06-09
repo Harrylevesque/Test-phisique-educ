@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Éditeur standards EPS (CSV)</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .csv-table { border-collapse: collapse; width: 100%; margin-top: 20px; }
+        .csv-table th, .csv-table td { border: 1px solid #ccc; padding: 6px 8px; text-align: left; }
+        .csv-table th { background: #e3eaf2; }
+        .csv-table input, .csv-table select { width: 100%; box-sizing: border-box; }
+        .csv-table tr:nth-child(even) { background: #f9fbfd; }
+        .csv-table tr:hover { background: #e6f0fa; }
+        .csv-controls { margin: 18px 0 10px 0; display: flex; gap: 10px; }
+        .csv-controls button { padding: 6px 14px; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Éditeur standards EPS (CSV)</h1>
+    <div class="csv-controls">
+        <button id="addRowBtn">Ajouter une ligne</button>
+        <button id="downloadBtn">Télécharger standards.csv</button>
+        <input type="file" id="csvFileInput" accept=".csv">
+    </div>
+    <form id="csvForm">
+        <table class="csv-table" id="csvTable">
+            <thead>
+                <tr>
+                    <th>Sexe</th>
+                    <th>Âge</th>
+                    <th>Activité</th>
+                    <th>ScoreMax</th>
+                    <th>Min</th>
+                    <th>Max</th>
+                    <th>Direction</th>
+                    <th>Suppr.</th>
+                </tr>
+            </thead>
+            <tbody id="csvTableBody">
+            </tbody>
+        </table>
+    </form>
+</div>
+<script src="edit-csv.js"></script>
+</body>
+</html>
