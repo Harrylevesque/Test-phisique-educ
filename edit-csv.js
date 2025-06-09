@@ -41,6 +41,7 @@ function renderTable(rows) {
             <td><select>${sexes.map(s => `<option value="${s}"${row['Sexe']===s?' selected':''}>${s}</option>`).join('')}</select></td>
             <td><select>${ages.map(a => `<option value="${a}"${row['Âge']==a?' selected':''}>${a}</option>`).join('')}</select></td>
             <td><input type="text" value="${row['Activité']||''}" class="activity-input"></td>
+            <td><input type="text" value="${row['Nom']||row['Activité']||''}" class="nom-input"></td>
             <td><input type="number" min="1" max="20" value="${row['ScoreMax']||''}"></td>
             <td><input type="number" value="${row['Min']||''}"></td>
             <td><input type="number" value="${row['Max']||''}"></td>
@@ -51,7 +52,7 @@ function renderTable(rows) {
         // Synchronisation
         tr.querySelectorAll('input,select').forEach((input, i) => {
             input.addEventListener('input', () => {
-                const keys = ['Sexe','Âge','Activité','ScoreMax','Min','Max','Direction'];
+                const keys = ['Sexe','Âge','Activité','Nom','ScoreMax','Min','Max','Direction'];
                 row[keys[i]] = input.value;
             });
         });
@@ -79,10 +80,11 @@ function renderTable(rows) {
 }
 
 function addActivityToAll(activity) {
-    // Ajoute l'activité pour chaque sexe et chaque âge
+    // Demander le nom à afficher pour chaque sexe/âge
     sexes.forEach(sex => {
         ages.forEach(age => {
-            rows.push({Sexe:sex,Âge:String(age),Activité:activity,ScoreMax:'10',Min:'0',Max:'10',Direction:'higher',Echelons:''});
+            let customName = prompt(`Nom affiché pour ${activity} (${sex === 'male' ? 'garçon' : 'fille'}, ${age} ans) :`, activity);
+            rows.push({Sexe:sex,Âge:String(age),Activité:activity,Nom:customName,ScoreMax:'10',Min:'0',Max:'10',Direction:'higher',Echelons:''});
         });
     });
     renderTable(rows);
