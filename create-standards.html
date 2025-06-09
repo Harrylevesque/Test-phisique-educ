@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Créateur de standards EPS</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .json-output {
+            background: #f4f6fa;
+            border-radius: 8px;
+            padding: 15px;
+            margin-top: 20px;
+            font-family: monospace;
+            font-size: 0.95em;
+            white-space: pre-wrap;
+            word-break: break-all;
+        }
+        .section-title {
+            margin-top: 30px;
+            color: #2a4d69;
+            font-size: 1.1em;
+            font-weight: bold;
+        }
+        .flex-row { display: flex; gap: 10px; align-items: center; }
+        .flex-row input, .flex-row select { margin-bottom: 0; }
+        .block-table { border-collapse: collapse; margin-bottom: 10px; }
+        .block-table td, .block-table th { border: 1px solid #ccc; padding: 2px 6px; }
+        .block-table th { background: #e3eaf2; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Créateur de standards EPS</h1>
+    <form id="standardForm">
+        <div class="section-title">Paramètres généraux</div>
+        <div class="flex-row">
+            <label>Arrondi :
+                <select id="rounding">
+                    <option value="round">Entier</option>
+                    <option value="decimal">Décimal (2 chiffres)</option>
+                </select>
+            </label>
+        </div>
+        <div class="section-title">Noms des critères</div>
+        <div id="gradeNamesInputs"></div>
+        <div class="section-title">Sens de notation (plus haut ou plus bas meilleur)</div>
+        <div id="gradeDirectionsInputs"></div>
+        <div class="section-title">Standards, Blocs et Scores</div>
+        <div id="standardsBlocks"></div>
+        <button type="button" id="generateBtn">Générer standards.json</button>
+    </form>
+    <div class="section-title">Aperçu JSON</div>
+    <div class="json-output" id="jsonOutput"></div>
+    <button type="button" id="downloadBtn" style="margin-top:10px;">Télécharger standards.json</button>
+</div>
+<script src="create-standards.js"></script>
+</body>
+</html>
