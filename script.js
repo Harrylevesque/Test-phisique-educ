@@ -6,6 +6,7 @@ let rounding = 'round';
 let direction = 'higher';
 let gradeDirections = [];
 let gradeBlocks = {};
+let gradeScores = {};
 
 async function loadStandards(jsonPath = 'standards.json') {
     const res = await fetch(jsonPath);
@@ -15,6 +16,7 @@ async function loadStandards(jsonPath = 'standards.json') {
     gradeDirections = data.gradeDirections || Array(7).fill('higher');
     rounding = data.rounding || 'round';
     gradeBlocks = data.gradeBlocks;
+    gradeScores = data.gradeScores;
 }
 
 function updateSliders() {
@@ -43,13 +45,18 @@ function updateSliders() {
     });
 }
 
-function getBlockGrade(val, blocks, dir) {
-    // blocks = [0,2,4,6,8,10] => 0-1.99=0, 2-3.99=2, ...
-    if (dir === 'lower') blocks = [...blocks].reverse();
-    for (let i = 0; i < blocks.length-1; i++) {
-        if (val >= blocks[i] && val < blocks[i+1]) return blocks[i];
+// Nouvelle fonction pour trouver la note associée à la valeur entrée, selon les blocs et scores
+function getBlockGrade(val, blocks, scores, dir) {
+    // blocks = [0, 2, 4, 6, 8, 10], scores = [0, 2, 4, 6, 8, 10]
+    // Si "lower" est meilleur, on inverse les blocs ET les scores
+    if (dir === 'lower') {
+        blocks = [...blocks].reverse();
+        scores = [...scores].reverse();
     }
-    return blocks[blocks.length-1];
+    for (let i = 0; i < blocks.length - 1; i++) {
+        if (val >= blocks[i] && val < blocks[i + 1]) return scores[i];
+    }
+    return scores[scores.length - 1];
 }
 
 function calculateTotal(e) {
@@ -57,11 +64,13 @@ function calculateTotal(e) {
     let total = 0;
     let stds = standards[currentSex][currentAge];
     let blocks = gradeBlocks[currentSex][currentAge];
+    let scores = gradeScores[currentSex][currentAge];
     for (let i = 0; i < 7; i++) {
         let val = parseFloat(document.getElementById('input'+i).value);
         let dir = gradeDirections[i];
         let blockArr = blocks[i];
-        let grade = getBlockGrade(val, blockArr, dir);
+        let scoreArr = scores[i];
+        let grade = getBlockGrade(val, blockArr, scoreArr, dir);
         total += grade;
     }
     let percent = (total / 70) * 100;
