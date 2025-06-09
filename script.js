@@ -31,17 +31,8 @@ function updateSliders() {
         box.innerHTML = `
             <label>${name}</label>
             <input type="number" min="${min}" max="${max}" step="${rounding === 'round' ? 1 : 0.01}" value="${min}" id="input${i}">
-            <select id="dir${i}" class="direction-select">
-                <option value="higher" ${gradeDirections[i]==='higher'?'selected':''}>Plus haut meilleur</option>
-                <option value="lower" ${gradeDirections[i]==='lower'?'selected':''}>Plus bas meilleur</option>
-            </select>
         `;
         slidersDiv.appendChild(box);
-        // Direction select
-        const dirSelect = box.querySelector('.direction-select');
-        dirSelect.addEventListener('change', (e) => {
-            gradeDirections[i] = e.target.value;
-        });
     });
 }
 
