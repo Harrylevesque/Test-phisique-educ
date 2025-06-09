@@ -24,29 +24,19 @@ function updateSliders() {
     gradeNames.forEach((name, i) => {
         const min = stds[i].min;
         const max = stds[i].max;
-        const slider = document.createElement('div');
-        slider.className = 'grade-slider';
-        slider.innerHTML = `
+        const box = document.createElement('div');
+        box.className = 'grade-slider';
+        box.innerHTML = `
             <label>${name}</label>
-            <input type="range" min="${min}" max="${max}" step="${rounding === 'round' ? 1 : 0.01}" value="${min}" id="slider${i}">
             <input type="number" min="${min}" max="${max}" step="${rounding === 'round' ? 1 : 0.01}" value="${min}" id="input${i}">
             <select id="dir${i}" class="direction-select">
                 <option value="higher" ${gradeDirections[i]==='higher'?'selected':''}>Plus haut meilleur</option>
                 <option value="lower" ${gradeDirections[i]==='lower'?'selected':''}>Plus bas meilleur</option>
             </select>
         `;
-        slidersDiv.appendChild(slider);
-        // Synchronisation slider/number
-        const range = slider.querySelector('input[type=range]');
-        const number = slider.querySelector('input[type=number]');
-        range.addEventListener('input', () => {
-            number.value = range.value;
-        });
-        number.addEventListener('input', () => {
-            range.value = number.value;
-        });
+        slidersDiv.appendChild(box);
         // Direction select
-        const dirSelect = slider.querySelector('.direction-select');
+        const dirSelect = box.querySelector('.direction-select');
         dirSelect.addEventListener('change', (e) => {
             gradeDirections[i] = e.target.value;
         });
