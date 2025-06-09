@@ -3,7 +3,6 @@ let gradeNames = [];
 let currentSex = 'male';
 let currentAge = '12';
 let rounding = 'round';
-let direction = 'higher';
 let gradeDirections = [];
 let gradeBlocks = {};
 let gradeScores = {};
@@ -82,13 +81,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     document.getElementById('age').addEventListener('change', e => {
         currentAge = e.target.value;
         updateSliders();
-    });
-    document.getElementById('rounding').addEventListener('change', e => {
-        rounding = e.target.value;
-        updateSliders();
-    });
-    document.getElementById('direction').addEventListener('change', e => {
-        direction = e.target.value;
     });
     document.getElementById('gradesForm').addEventListener('submit', calculateTotal);
     updateSliders();
